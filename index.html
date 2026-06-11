@@ -7,6 +7,31 @@
     <title>Impostor Lol</title>
   </head>
   <body>
+    <main class="home">
+      <header class="header">
+        <img
+          src="./assets/leagueOfImpostorLogo.png"
+          alt="logo league of impostores"
+        />
+        <p>Descubre quien es el <span>impostor</span></p>
+      </header>
+
+      <div id="setup-screen">
+        <div class="form-group">
+          <label for="players">Cantidad de jugadores</label>
+          <input type="number" id="players" min="3" max="20" value="4" />
+        </div>
+
+        <div class="form-group">
+          <label for="impostors">Cantidad de impostores</label>
+          <input type="number" id="impostors" min="1" max="5" value="1" />
+        </div>
+
+        <button id="create-game">Continuar</button>
+        <div id="players-container"></div>
+      </div>
+      <div id="game-screen"></div>
+    </main>
     <script src="./js/words.js"></script>
     <script src="./js/app.js"></script>
   </body>
