@@ -2,6 +2,7 @@
   font-family: "fontPrincipal";
   src: url(../assets/fonts/BeaufortforLOL-Bold.otf);
 }
+
 @font-face {
   font-family: "fontSecundario";
   src: url(../assets/fonts/BeaufortforLOL-BoldItalic.otf);
@@ -17,36 +18,47 @@ body {
   color: #f0e6d2;
   font-family: "fontPrincipal", sans-serif;
   font-size: 16px;
-  min-height: 100vh;
-  /*background-image: url(../assets/600528.png);*/
-  background-color: #0a1428;
-}
 
-.home {
   min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top, rgba(200, 155, 60, 0.08), transparent 30%),
+    radial-gradient(
+      circle at bottom right,
+      rgba(84, 140, 180, 0.12),
+      transparent 40%
+    ),
+    #0a1428;
+
+  padding: 1rem;
+
   display: grid;
   grid-template-rows: 1fr auto 1fr;
-  gap: 2rem;
 
-  padding: 2rem;
+  gap: 2rem;
 }
 
 .header {
   display: flex;
   flex-direction: column;
+
   align-items: center;
-  justify-content: start;
-  gap: 2rem;
+
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .header img {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
+
+  filter: drop-shadow(0 0 25px rgba(200, 155, 60, 0.25))
+    drop-shadow(0 0 50px rgba(200, 155, 60, 0.1));
 }
 
 .header p {
-  width: 80%;
-  font-size: 2rem;
-  font-family: "fontPrincipal";
+  text-align: center;
+  font-size: 1.3rem;
 }
 
 .header span {
@@ -54,27 +66,141 @@ body {
   color: #c79b3b;
 }
 
-.form-group {
+.main {
+  width: 100%;
+
+  background: rgba(30, 35, 40, 0.9);
+
+  border: 1px solid rgba(200, 155, 60, 0.15);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.35),
+    0 0 30px rgba(200, 155, 60, 0.05);
+
+  backdrop-filter: blur(12px);
+
+  padding: 1.5rem;
+
+  animation: fadeIn 0.3s ease;
+}
+
+#setup-screen,
+#game-screen {
+  width: 100%;
+
   display: flex;
   flex-direction: column;
+
+  gap: 1rem;
+}
+
+.form-group {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
   gap: 0.5rem;
+}
+
+label {
+  color: #c79b3b;
 }
 
 input,
 select,
 button {
-  padding: 0.8rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: #1e2328;
+  width: 100%;
+
+  display: block;
+
+  font-family: inherit;
+  font-size: 1rem;
+
+  border-radius: 12px;
+
+  padding: 1rem;
+}
+
+input,
+select {
+  background: rgba(10, 20, 40, 0.8);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
   color: #f0e6d2;
+
+  transition: 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+
+  border-color: #c79b3b;
+
+  box-shadow: 0 0 0 2px rgba(199, 155, 59, 0.15);
 }
 
 button {
+  border: none;
+
+  background: linear-gradient(180deg, #c79b3b, #a57a28);
+
+  color: #0a1428;
+
   cursor: pointer;
-  background-color: #548cb4;
+
+  transition: 0.2s ease;
 }
 
 button:hover {
-  background-color: #eddc91;
+  background: linear-gradient(180deg, #eddc91, #c79b3b);
+
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main {
+    max-width: 500px;
+  }
+
+  .header p {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main {
+    max-width: 600px;
+  }
 }
